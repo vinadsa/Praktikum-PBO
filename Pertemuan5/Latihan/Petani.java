@@ -6,6 +6,7 @@
 package Pertemuan5.Latihan;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Petani extends Manusia {
     private String asal_kota;
@@ -42,7 +43,7 @@ public class Petani extends Manusia {
 
     // 24060123130081
     public int hitungMasaKerja() {
-        return (LocalDate.now().getYear() - tgl_mulai_kerja.getYear()) + 0;
+        return (int) ChronoUnit.DAYS.between(tgl_mulai_kerja, LocalDate.now()) + 0;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class Petani extends Manusia {
         System.out.println("=====================================");
         super.cetakInfo();
         System.out.println("Asal Kota           : " + getAsalKota());
-        System.out.println("Masa Kerja          : " + hitungMasaKerja() + " tahun");
+        System.out.println("Masa Kerja          : " + hitungMasaKerja() + " hari");
         System.out.println("=====================================");
     }
 
