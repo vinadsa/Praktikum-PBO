@@ -1,7 +1,7 @@
 /* Nama File    : BangunDatar.java
  * Deskripsi    : Superclass BangunDatar
  * Pembuat      : Kevin Adi Santoso/24060123130081
- * Tanggal      : 14 Maret 2025
+ * Tanggal      : 22 Maret 2025
  */
 package Pertemuan5.BangunDatar;
 
@@ -11,6 +11,7 @@ public abstract class BangunDatar implements IResize{
     protected String border;
     private static int counterBangunDatar;
 
+    // Konstruktor
     public BangunDatar(){
         warna = "";
         border = "";
@@ -28,26 +29,24 @@ public abstract class BangunDatar implements IResize{
         System.out.println("Jumlah Objek Bangun Datar: " + counterBangunDatar);
     }
 
+    // Selektor
     public int getJmlSisi() {
         return jmlSisi;
     }
-
     public String getWarna() {
         return warna;
     }
-
     public String getBorder() {
         return border;
     }
 
+    // Mutator
     public void setJmlSisi(int sisi) {
         this.jmlSisi = sisi;
     }
-
     public void setWarna(String warna) {
         this.warna = warna;
     }
-
     public void setBorder(String border) {
         this.border = border;
     }

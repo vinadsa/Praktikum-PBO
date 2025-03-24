@@ -1,7 +1,7 @@
 /* Nama File    : MBangunDatar.java
  * Deskripsi    : Main class BangunDatar
  * Pembuat      : Kevin Adi Santoso/24060123130081
- * Tanggal      : 14 Maret 2025
+ * Tanggal      : 22 Maret 2025
  */
 package Pertemuan5.BangunDatar;
 

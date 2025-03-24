@@ -1,3 +1,8 @@
+/* Nama File    : IResize.java
+ * Deskripsi    : Interface IResize
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 22 Maret 2025
+ */
 package Pertemuan5.BangunDatar;
 
 public interface IResize {

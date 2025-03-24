@@ -1,13 +1,14 @@
 /* Nama File    : Persegi.java
  * Deskripsi    : Subclass BangunDatar, Persegi
  * Pembuat      : Kevin Adi Santoso/24060123130081
- * Tanggal      : 14 Maret 2025
+ * Tanggal      : 22 Maret 2025
  */
 package Pertemuan5.BangunDatar;
 
 public class Persegi extends BangunDatar {
     private double sisi;
 
+    // Konstruktor
     public Persegi() {
         super();
         setJmlSisi(4);
@@ -18,10 +19,12 @@ public class Persegi extends BangunDatar {
         this.sisi = sisi;
     }
 
+    // Selektor
     public double getSisi() {
         return sisi;
     }
 
+    // Mutator
     public void setSisi(double sisi) {
         this.sisi = sisi;
     }

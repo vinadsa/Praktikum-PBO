@@ -1,13 +1,14 @@
 /* Nama File    : Lingkaran.java
  * Deskripsi    : Subclass BangunDatar, Lingkaran
  * Pembuat      : Kevin Adi Santoso/24060123130081
- * Tanggal      : 14 Maret 2025
+ * Tanggal      : 22 Maret 2025
  */
 package Pertemuan5.BangunDatar;
 
 public class Lingkaran extends BangunDatar {
     private double jari;
 
+    // Konstruktor
     public Lingkaran() {
         super();
         this.jari = 0;
@@ -18,14 +19,17 @@ public class Lingkaran extends BangunDatar {
         this.jari = jari;
     }
 
+    // Selektor
     public double getJari() {
         return jari;
     }
 
+    // Mutator
     public void setJari(double jari) {
         this.jari = jari;
     }
 
+    
     public double getLuas() {
         return Math.PI * jari * jari;
     }
