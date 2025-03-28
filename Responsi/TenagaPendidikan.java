@@ -1,3 +1,8 @@
+/* Nama File    : TenagaPendidikan.java
+ * Deskripsi    : Class TenagaPendidikan, subclass dari Karyawan
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 28 Maret 2025
+ */
 package Responsi;
 
 public class TenagaPendidikan extends Karyawan{

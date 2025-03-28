@@ -1,3 +1,8 @@
+/* Nama File    : Main.java
+ * Deskripsi    : Main class Universitas
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 28 Maret 2025
+ */
 package Responsi;
 
 public class Main {
@@ -28,7 +33,7 @@ public class Main {
         System.out.println("Jumlah tenaga pendidikan: " + TenagaPendidikan.getCounterTenagaPendidikan());
 
         System.out.println("===============================================================");
-        System.out.println("INFORMASI CIVITAS AKADEMIKA");
+        System.out.println("INFORMASI UNIVERSITAS");
 
         // Menampilkan informasi fakultas
         System.out.println("\nInformasi Fakultas:");

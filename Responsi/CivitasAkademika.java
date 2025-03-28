@@ -1,3 +1,8 @@
+/* Nama File    : CivitasAkademika.java
+ * Deskripsi    : Class CivitasAkademika, superclass dari Mahasiswa dan Karyawan
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 28 Maret 2025
+ */
 package Responsi;
 
 public abstract class CivitasAkademika {

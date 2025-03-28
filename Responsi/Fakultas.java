@@ -1,3 +1,8 @@
+/* Nama File    : Fakultas.java
+ * Deskripsi    : Class Fakultas
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 28 Maret 2025
+ */
 package Responsi;
 
 public class Fakultas {
