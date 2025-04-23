@@ -5,7 +5,7 @@
  */
 package Pertemuan6.TugasLanjutan;
 
-class Burung extends Anabul {
+public class Burung extends Anabul {
     public Burung() {
         super();
     }

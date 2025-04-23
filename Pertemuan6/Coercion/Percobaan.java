@@ -1,3 +1,8 @@
+/* Nama File    : Percobaan.java
+ * Deskripsi    : Class Percobaan, untuk ngetes penggunaan Coercion
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 23 April 2025
+ */
 package Pertemuan6.Coercion;
 
 public class Percobaan {

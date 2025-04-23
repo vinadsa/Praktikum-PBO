@@ -1,3 +1,8 @@
+/* Nama File    : TestPolimorfisme.java
+ * Deskripsi    : Main class TestPolimorfisme
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 23 April 2025
+ */
 package Pertemuan6.PostTest;
 
 import java.util.ArrayList;
