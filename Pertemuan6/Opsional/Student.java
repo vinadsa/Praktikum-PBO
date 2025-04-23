@@ -10,6 +10,7 @@ public class Student extends Person {
         super(name);
     }
 
+    @Override
     public boolean isAsleep(int hr) // override
     {
         return 2 < hr && 8 > hr;

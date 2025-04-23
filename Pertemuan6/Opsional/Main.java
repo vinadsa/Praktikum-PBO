@@ -12,3 +12,5 @@ public class Main {
         p.status(1);
     }
 }
+
+// this dieksekusi pada runtime

@@ -8,9 +8,17 @@ package Pertemuan6.Opsional;
 public class Person {
     private String name;
 
-    public Person(String name) { this.name = name; }
-    public boolean isAsleep(int hr) { return 22 < hr || 7 > hr; }
-    public String toString() { return name; }
+    public Person(String name) { 
+        this.name = name; 
+    }
+
+    public boolean isAsleep(int hr) { 
+        return 22 < hr || 7 > hr; 
+    }
+    
+    public String toString() { 
+        return name; 
+    }
 
     public void status(int hr)
     {

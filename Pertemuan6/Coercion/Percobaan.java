@@ -13,9 +13,9 @@ public class Percobaan {
 
         // 2. double x = 15.5;
         // int output = x; --> Error, tidak bisa coercion dari double ke int tanpa casting
-        double x = 15.5;
-        int output2 = x;
-        System.out.println("2: " + output2);
+        // double x = 15.5;
+        // int output2 = x;
+        // System.out.println("2: " + output2);
 
         // 3. int y = 25;
         // double output = y; --> Berhasil, coercion dari int ke double dilakukan otomatis

@@ -13,13 +13,13 @@ public class Main {
         Anabul anabul2 = new Anjing("Budi");
         Anabul anabul3 = new Burung("Cici");
 
-        // Membuat array dari objek Anabul
+        // Membuat list dari objek Anabul
         ArrayList<Anabul> daftarAnabul = new ArrayList<Anabul>();
         daftarAnabul.add(anabul1);
         daftarAnabul.add(anabul2);
         daftarAnabul.add(anabul3);
         
-        // Menampilkan suara dan gerakan setiap Anabul
+        // Print suara dan gerakan setiap Anabul
         System.out.println("Demonstrasi Polimorfisme pada Anabul:");
         System.out.println("====================================");
         

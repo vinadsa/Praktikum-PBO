@@ -23,3 +23,15 @@ public class TestPolimorfisme {
         }
     }
 }
+
+// SOAL 1: Jelaskan manfaat polimorfisme pada kasus ini!
+// Manfaat polimorfisme pada kasus ini adalah memungkinkan objek Programmer dan Manajer disimpan dalam satu list tipe Pegawai,
+// sehingga metode tampilData() bisa dipanggil secara dinamis sesuai jenis objeknya tanpa menggunakan casting atau checking tipe. 
+// Akibatnya kode lebih ringkas, fleksibel, dan mudah dikembangkan.
+
+
+// SOAL 2: Apabila pada main program perlu menambahkan pegawai4 dan pegawai5! Apa
+// permasalahan yang muncul jika diterapkan tanpa polimorfisme (inclusion)?
+// Tanpa polimorfisme, penambahan pegawai4 dan pegawai5 mengharuskan pembuatan list dan loop terpisah  
+// untuk tiap jenis pegawai serta penggunaan instanceof dan casting. 
+// Akibatnya membuat kode menjadi duplikatif, sulit dipelihara, dan tidak efisien.
