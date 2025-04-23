@@ -4,32 +4,29 @@ public class Pegawai {
     protected String nama;
     protected int gajiPokok = 5000000;
 
-    // Constructor tanpa parameter
+    // Konstruktor  
     public Pegawai() {
-        this.nama = "Tidak Diketahui";
+        this.nama = "";
     }
 
-    // Constructor dengan parameter
     public Pegawai(String nama) {
         this.nama = nama;
     }
 
-    // Selektor (getter) untuk nama
+    // Selektor 
     public String getNama() {
         return nama;
     }
 
-    // Selektor (getter) untuk gajiPokok
     public int getGajiPokok() {
         return gajiPokok;
     }
 
-    // Mutator (setter) untuk nama
+    // Mutator 
     public void setNama(String nama) {
         this.nama = nama;
     }
 
-    // Mutator (setter) untuk gajiPokok
     public void setGajiPokok(int gajiPokok) {
         this.gajiPokok = gajiPokok;
     }
@@ -40,4 +37,4 @@ public class Pegawai {
     }
 }
 
-// Buatlah konstruktor non parameter, parameter, dan selektor mutator nya. Dipisah masing-masing
+ 

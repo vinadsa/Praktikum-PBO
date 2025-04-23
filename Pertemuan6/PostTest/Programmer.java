@@ -3,28 +3,27 @@ package Pertemuan6.PostTest;
 public class Programmer extends Pegawai {
     private int bonus = 450000;
 
-    // Constructor tanpa parameter
+    // Konstruktor
     public Programmer() {
         super();
     }
 
-    // Constructor dengan parameter
     public Programmer(String nama) {
         super(nama);
     }
 
-    // Selektor (getter) untuk bonus
+    // Selektor 
     public int getBonus() {
         return bonus;
     }
 
-    // Mutator (setter) untuk bonus
+    // Mutator 
     public void setBonus(int bonus) {
         this.bonus = bonus;
     }
 
     public void tampilData() {
-        super.tampilData(); // Memanggil metode tampilData() dari kelas Pegawai
+        super.tampilData();
         System.out.println("Bonus: " + bonus);
     }
 }

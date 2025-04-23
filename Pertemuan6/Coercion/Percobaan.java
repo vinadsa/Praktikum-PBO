@@ -3,15 +3,14 @@ package Pertemuan6.Coercion;
 public class Percobaan {
     public static void main(String[] args) {
         // 1. int output = 'a';
-        // 'a' adalah char, yang bisa secara implisit di-coerce ke int (ASCII value)
         int output1 = 'a';
         System.out.println("1: " + output1); // Output: 97
 
         // 2. double x = 15.5;
         // int output = x; --> Error, tidak bisa coercion dari double ke int tanpa casting
         double x = 15.5;
-        // int output2 = x; // Uncomment ini akan menyebabkan error
-        // System.out.println("2: " + output2);
+        int output2 = x;
+        System.out.println("2: " + output2);
 
         // 3. int y = 25;
         // double output = y; --> Berhasil, coercion dari int ke double dilakukan otomatis

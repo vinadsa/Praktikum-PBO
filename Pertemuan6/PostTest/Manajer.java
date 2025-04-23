@@ -3,28 +3,27 @@ package Pertemuan6.PostTest;
 public class Manajer extends Pegawai{
     private int tunjangan = 700000;
 
-    // Konstruktor non-parameter
+    // Konstruktor 
     public Manajer() {
         super();
     }
 
-    // Konstruktor parameter
     public Manajer(String nama) {
         super(nama);
     }
 
-    // Selektor (getter) untuk tunjangan
+    // Selektor 
     public int getTunjangan() {
         return tunjangan;
     }
 
-    // Mutator (setter) untuk tunjangan
+    // Mutator 
     public void setTunjangan(int tunjangan) {
         this.tunjangan = tunjangan;
     }
 
     public void tampilData() {
-        super.tampilData(); // Memanggil metode tampilData() dari kelas Pegawai
+        super.tampilData();
         System.out.println("Tunjangan: " + tunjangan);
     }
 }
