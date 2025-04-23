@@ -6,6 +6,7 @@
 package Pertemuan5.Latihan;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class PNS extends Manusia {
     private String nip;
@@ -42,7 +43,7 @@ public class PNS extends Manusia {
 
     // 24060123130081
     public int hitungMasaKerja() {
-        return (LocalDate.now().getYear() - super.getTglMulaiKerja().getYear()) + 1;
+        return (int) ChronoUnit.DAYS.between(tgl_mulai_kerja, LocalDate.now()) + 1;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class PNS extends Manusia {
         System.out.println("=====================================");
         super.cetakInfo();
         System.out.println("NIP                 : " + getNip());
-        System.out.println("Masa Kerja          : " + hitungMasaKerja() + " tahun");
+        System.out.println("Masa Kerja          : " + hitungMasaKerja() + " hari");
         System.out.println("=====================================");
     }
 

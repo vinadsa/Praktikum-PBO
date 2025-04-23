@@ -6,6 +6,7 @@
 package Pertemuan5.Latihan;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Pengusaha extends Manusia {
     private String npwp;
@@ -42,7 +43,7 @@ public class Pengusaha extends Manusia {
 
     // 24060123130081
     public int hitungMasaKerja() {
-        return (LocalDate.now().getYear() - tgl_mulai_kerja.getYear()) + 8;
+        return (int) ChronoUnit.DAYS.between(tgl_mulai_kerja, LocalDate.now()) + 8;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class Pengusaha extends Manusia {
         System.out.println("=====================================");
         super.cetakInfo();
         System.out.println("NPWP                : " + getNpwp());
-        System.out.println("Masa Kerja          : " + hitungMasaKerja() + " tahun");
+        System.out.println("Masa Kerja          : " + hitungMasaKerja() + " hari");
         System.out.println("=====================================");
     }
 
