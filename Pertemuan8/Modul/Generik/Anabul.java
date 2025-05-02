@@ -1,7 +1,7 @@
 /* Nama File    : Anabul.java
  * Deskripsi    : Superclass Anabul
  * Pembuat      : Kevin Adi Santoso/24060123130081
- * Tanggal      : 23 April 2025
+ * Tanggal      : 1 Mei 2025
  */
 package Pertemuan8.Modul.Generik;
 
