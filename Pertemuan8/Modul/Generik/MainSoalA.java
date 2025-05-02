@@ -5,7 +5,7 @@
  */
 package Pertemuan8.Modul.Generik;
 
-public class Main {
+public class MainSoalA {
     public static void main(String[] args) {
         // Percobaan dengan Anabul (Anjing & Burung)
         Anjing a = new Anjing();
