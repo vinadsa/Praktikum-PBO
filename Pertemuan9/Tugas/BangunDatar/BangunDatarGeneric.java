@@ -1,4 +1,10 @@
-package Pertemuan9.Tugas;
+/* Nama File    : BangunDatarGeneric.java
+ * Deskripsi    : Class BangunDatarGeneric
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 9 Mei 2025
+ */
+
+package Pertemuan9.Tugas.BangunDatar;
 
 public class BangunDatarGeneric<T extends BangunDatar> {
     private T bangunDatar;
@@ -13,5 +19,9 @@ public class BangunDatarGeneric<T extends BangunDatar> {
 
     public double hitungKeliling() {
         return bangunDatar.hitungKeliling();
+    }
+
+    public double hitungLuas() {
+        return bangunDatar.hitungLuas();
     }
 }

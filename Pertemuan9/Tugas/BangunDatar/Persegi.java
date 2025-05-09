@@ -1,4 +1,10 @@
-package Pertemuan9.Tugas;
+/* Nama File    : Persegi.java
+ * Deskripsi    : Class Persegi, subclass BangunDatar
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 9 Mei 2025
+ */
+
+package Pertemuan9.Tugas.BangunDatar;
 
 public class Persegi extends BangunDatar {
     private double sisi;
