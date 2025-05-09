@@ -1,4 +1,4 @@
-package Pertemuan9;
+package Pertemuan9.Modul;
 
 public class BangunDatarGenericTest {
     public static void main(String[] args) {

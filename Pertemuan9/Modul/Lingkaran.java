@@ -1,4 +1,4 @@
-package Pertemuan9;
+package Pertemuan9.Modul;
 
 public class Lingkaran extends BangunDatar {
     private double jejari;

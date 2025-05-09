@@ -1,4 +1,4 @@
-package Pertemuan9;
+package Pertemuan9.Modul;
 
 public class BangunDatarGeneric<T extends BangunDatar> {
     private T bangunDatar;

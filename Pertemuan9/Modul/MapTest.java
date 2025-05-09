@@ -1,4 +1,4 @@
-package Pertemuan9;
+package Pertemuan9.Modul;
 
 import java.util.Map;
 import java.util.HashMap;
