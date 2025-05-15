@@ -1,3 +1,8 @@
+/* Nama File    : ReadSerializedPerson.java
+ * Deskripsi    : MainClass ReadSerializedPerson, untuk membaca data Person yang sudah diserialisasi
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 14 Mei 2025
+ */
 package Pertemuan10.Modul;
 
 import java.io.*;

@@ -1,3 +1,8 @@
+/* Nama File    : Person.java
+ * Deskripsi    : Class Person
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 14 Mei 2025
+ */
 package Pertemuan10.Modul;
 import java.io.Serializable;
 

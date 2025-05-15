@@ -1,3 +1,8 @@
+/* Nama File    : MySQLPersonDAO.java
+ * Deskripsi    : Class MySQLPersonDAO
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 14 Mei 2025
+ */
 package Pertemuan10.Modul;
 import java.sql.*;
 
