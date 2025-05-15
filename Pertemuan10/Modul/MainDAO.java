@@ -17,3 +17,5 @@ public class MainDAO {
         }
     }
 }
+
+// JALANKAN DENGAN COMMAND: java -classpath ".\mysql-connector-java-8.0.33.jar;..\.." Pertemuan10.Modul.MainDAO
