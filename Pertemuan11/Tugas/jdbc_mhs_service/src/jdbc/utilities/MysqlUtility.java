@@ -27,8 +27,8 @@ public class MysqlUtility {
                 // Sesuaikan host, port, nama db
                 String url = "jdbc:mysql://localhost:3306/jdbc_mhs?useSSL=false&serverTimezone=UTC";
                 // sesuaikan username dan password
-                String user = "student";
-                String password = "rahasia";
+                String user = "root";
+                String password = "ggezrl";
                 koneksi = DriverManager.getConnection(url, user, password);
                 if (koneksi != null) {
                     System.out.println("Koneksi berhasil");
@@ -65,8 +65,8 @@ public class MysqlUtility {
     public static Connection getNewConnection() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/jdbc_mhs?useSSL=false&serverTimezone=UTC";
-        String user = "student";
-        String password = "rahasia";
+        String user = "root";
+        String password = "ggezrl";
         return DriverManager.getConnection(url, user, password);
     }
 }

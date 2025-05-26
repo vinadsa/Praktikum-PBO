@@ -1,12 +1,13 @@
-w/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/* Nama File    : Mahasiswa.java
+ * Deskripsi    : Model class untuk entitas Mahasiswa
+ * Pembuat      : Kevin Adi Santoso/24060123130081
+ * Tanggal      : 26 Mei 2025
  */
 package jdbc.model;
 
 /**
- *
- * @author asus
+ * Model class untuk entitas Mahasiswa
+ * @author Kevin Adi Santoso
  */
 public class Mahasiswa {
 
