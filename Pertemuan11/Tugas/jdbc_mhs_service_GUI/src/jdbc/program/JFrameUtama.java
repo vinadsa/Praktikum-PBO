@@ -4,17 +4,25 @@
  */
 package jdbc.program;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author asus
  */
 public class JFrameUtama extends javax.swing.JFrame {
+    DefaultListModel<String> listID;
+    DefaultListModel<String> listNama;
 
     /**
      * Creates new form JFrameUtama
      */
     public JFrameUtama() {
         initComponents();
+        this.listID = new DefaultListModel<>();
+        this.listNama = new DefaultListModel<>();
+        this.jListID.setModel(listID);
+        this.jListNama.setModel(listNama);
     }
     
     /**
@@ -41,8 +49,8 @@ public class JFrameUtama extends javax.swing.JFrame {
         jTextFieldIDHapus = new javax.swing.JTextField();
         jTextFieldNamaEdit = new javax.swing.JTextField();
         jTextFieldNamaHapus = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonEdit = new javax.swing.JButton();
+        jButtonHapus = new javax.swing.JButton();
         jButtonResetIndeks = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,17 +121,17 @@ public class JFrameUtama extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Edit");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEdit.setText("Edit");
+        jButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonEditActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Hapus");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHapus.setText("Hapus");
+        jButtonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonHapusActionPerformed(evt);
             }
         });
 
@@ -159,8 +167,8 @@ public class JFrameUtama extends javax.swing.JFrame {
                             .addComponent(jTextFieldNamaHapus, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)))
+                            .addComponent(jButtonEdit)
+                            .addComponent(jButtonHapus)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelHeader)
@@ -202,13 +210,12 @@ public class JFrameUtama extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldIDEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldNamaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3))
+                            .addComponent(jButtonEdit))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldIDHapus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextFieldNamaHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton4)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldNamaHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonHapus)
+                            .addComponent(jTextFieldIDHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
                         .addComponent(jButtonResetIndeks)
                         .addContainerGap(36, Short.MAX_VALUE))))
@@ -230,7 +237,10 @@ public class JFrameUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNamaActionPerformed
 
     private void jButtonTambahkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTambahkanActionPerformed
-        // TODO add your handling code here:
+        listID.addElement(String.valueOf(listID.size() + 1));
+        listNama.addElement(jTextFieldNama.getText());
+        
+        jTextFieldNama.setText("");
     }//GEN-LAST:event_jButtonTambahkanActionPerformed
 
     private void jTextFieldNamaHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNamaHapusActionPerformed
@@ -245,13 +255,20 @@ public class JFrameUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIDHapusActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+        int index = jListID.getSelectedIndex();
+        String selectedID = jTextFieldIDEdit.getText();
+        String selectedNama = jTextFieldNamaEdit.getText();
+        listID.setElementAt(selectedID, index);
+        listNama.setElementAt(selectedNama, index);
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        jTextFieldNamaEdit.setText("");  
+        jTextFieldIDEdit.setText(""); 
+    }//GEN-LAST:event_jButtonEditActionPerformed
+
+    private void jButtonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHapusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonHapusActionPerformed
 
     private void jButtonResetIndeksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetIndeksActionPerformed
         // TODO add your handling code here:
@@ -293,9 +310,9 @@ public class JFrameUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAmbilSemuaData;
+    private javax.swing.JButton jButtonEdit;
+    private javax.swing.JButton jButtonHapus;
     private javax.swing.JButton jButtonResetIndeks;
     private javax.swing.JButton jButtonTambahkan;
     private javax.swing.JLabel jLabelHeader;

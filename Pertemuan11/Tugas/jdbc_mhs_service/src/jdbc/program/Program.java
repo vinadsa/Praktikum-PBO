@@ -15,48 +15,31 @@ import jdbc.service.MysqlMahasiswaService;
 public class Program {
 
     static MysqlMahasiswaService service = new MysqlMahasiswaService();
-    
-    /**
-     * Method untuk menampilkan semua data mahasiswa
-     * Menggunakan method displayAllMahasiswa() dari service
-     */
-    public static void displayAll() {
-        service.displayAllMahasiswa();
-        System.out.println();
-    }
-      public static void main(String[] args) {
-        System.out.println("=== TESTING MYSQL MAHASISWA SERVICE ===\n");
+    public static void main(String[] args) {
 
         // insert
         System.out.println("===insert");
-        Mahasiswa mhsAdd = new Mahasiswa(0, "Haryo"); // ID 0 karena auto-increment
+        Mahasiswa mhsAdd = new Mahasiswa(5, "Haryo");
         service.add(mhsAdd);
         System.out.println("berhasil insert: " + mhsAdd);
-        displayAll();
+        service.displayAllMahasiswa();
 
-        // update - ambil data terakhir yang ada
+        // update
         System.out.println("===update");
-        // Dapatkan semua data dan ambil yang terakhir
-        java.util.List<Mahasiswa> allMhs = service.getAll();
-        if (!allMhs.isEmpty()) {
-            Mahasiswa mhsUpdate = allMhs.get(allMhs.size() - 1); // Ambil data terakhir
-            System.out.println("Akan diupdate data lama: " + mhsUpdate);
-            mhsUpdate.setNama("Dinaya");
-            System.out.println("dengan data baru: " + mhsUpdate);
-            service.update(mhsUpdate);
-            displayAll();
+        Mahasiswa mhsUpdate = service.getById(5);
+        System.out.println("Akan diupdate data lama: " + mhsUpdate);
+        mhsUpdate.setNama("Dinaya");
+        System.out.println("dengan data baru: " + mhsUpdate);
+        service.update(mhsUpdate);
+        service.displayAllMahasiswa();
 
-            // delete - hapus data yang sama
-            System.out.println("===delete");
-            System.out.println("akan di delete: " + mhsUpdate);
-            service.delete(mhsUpdate.getId());
-            displayAll();
-        } else {
-            System.out.println("Tidak ada data untuk diupdate dan dihapus");
-        }
-        
-        // Tutup koneksi
+        // delete
+        System.out.println("===delete");
+        System.out.println("akan di delete: " + service.getById(5));
+        service.delete(5);
+        service.displayAllMahasiswa();
+
+        // Close connection when done
         service.closeConnection();
-        System.out.println("Program selesai.");
     }
 }

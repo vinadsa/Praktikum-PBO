@@ -43,10 +43,11 @@ public class MysqlMahasiswaService {
      * @param mhs Objek Mahasiswa yang akan ditambahkan
      */
     public void add(Mahasiswa mhs) {
-        String query = "INSERT INTO mahasiswa (nama) VALUES (?)";
+        String query = "INSERT INTO mahasiswa (id, nama) VALUES (?, ?)";
         try {
             PreparedStatement ps = koneksi.prepareStatement(query);
-            ps.setString(1, mhs.getNama());
+            ps.setInt(1, mhs.getId());
+            ps.setString(2, mhs.getNama());
             int result = ps.executeUpdate();
             if (result > 0) {
                 System.out.println("Data mahasiswa berhasil ditambahkan");
