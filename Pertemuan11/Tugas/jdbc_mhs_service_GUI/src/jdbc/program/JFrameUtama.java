@@ -5,6 +5,8 @@
 package jdbc.program;
 
 import javax.swing.DefaultListModel;
+import jdbc.model.Mahasiswa;
+import jdbc.service.MysqlMahasiswaService;
 
 /**
  *
@@ -13,6 +15,8 @@ import javax.swing.DefaultListModel;
 public class JFrameUtama extends javax.swing.JFrame {
     DefaultListModel<String> listID;
     DefaultListModel<String> listNama;
+    static MysqlMahasiswaService service = new MysqlMahasiswaService();
+    
 
     /**
      * Creates new form JFrameUtama
@@ -193,9 +197,9 @@ public class JFrameUtama extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -212,13 +216,14 @@ public class JFrameUtama extends javax.swing.JFrame {
                             .addComponent(jTextFieldNamaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonEdit))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldNamaHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonHapus)
-                            .addComponent(jTextFieldIDHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldNamaHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonHapus))
+                            .addComponent(jTextFieldIDHapus))
+                        .addGap(36, 36, 36)
                         .addComponent(jButtonResetIndeks)
-                        .addContainerGap(36, Short.MAX_VALUE))))
+                        .addContainerGap(40, Short.MAX_VALUE))))
         );
 
         pack();
@@ -240,7 +245,10 @@ public class JFrameUtama extends javax.swing.JFrame {
         listID.addElement(String.valueOf(listID.size() + 1));
         listNama.addElement(jTextFieldNama.getText());
         
+        Mahasiswa mhsAdd = new Mahasiswa(listID.size() ,jTextFieldNama.getText());
+        service.add(mhsAdd);
         jTextFieldNama.setText("");
+        service.displayAllMahasiswa();
     }//GEN-LAST:event_jButtonTambahkanActionPerformed
 
     private void jTextFieldNamaHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNamaHapusActionPerformed
@@ -257,17 +265,36 @@ public class JFrameUtama extends javax.swing.JFrame {
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         int index = jListID.getSelectedIndex();
-        String selectedID = jTextFieldIDEdit.getText();
-        String selectedNama = jTextFieldNamaEdit.getText();
-        listID.setElementAt(selectedID, index);
-        listNama.setElementAt(selectedNama, index);
+        if (index != -1){
+            String selectedNama = jTextFieldNamaEdit.getText();
+            
+            String id = listID.getElementAt(index);
+            Mahasiswa mhsUpdate = service.getById(Integer.parseInt(id));
+            
+            mhsUpdate.setNama(selectedNama);
+            service.update(mhsUpdate);
+            
+            listNama.setElementAt(selectedNama, index);
 
-        jTextFieldNamaEdit.setText("");  
-        jTextFieldIDEdit.setText(""); 
+            jTextFieldNamaEdit.setText("");  
+            jTextFieldIDEdit.setText("");
+        }
     }//GEN-LAST:event_jButtonEditActionPerformed
 
     private void jButtonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHapusActionPerformed
-        // TODO add your handling code here:
+        int index = jListID.getSelectedIndex();
+        if (index != -1) {
+            
+            String id = listID.getElementAt(index);
+            String nama = listNama.getElementAt(index);
+            jTextFieldIDHapus.setText(id);
+            jTextFieldNamaHapus.setText(nama);
+
+            service.delete(Integer.parseInt(id)); // Sesuaikan logika delete jika index bukan ID asli database
+
+            listID.remove(index);
+            listNama.remove(index);
+        }
     }//GEN-LAST:event_jButtonHapusActionPerformed
 
     private void jButtonResetIndeksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetIndeksActionPerformed
