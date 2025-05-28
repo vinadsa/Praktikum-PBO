@@ -27,9 +27,6 @@ public class MysqlMahasiswaService {
 
     /**
      * Membuat objek mahasiswa dari ResultSet
-     * @param rs ResultSet dari query database
-     * @return Objek Mahasiswa
-     * @throws SQLException jika terjadi error saat mengakses ResultSet
      */
     public Mahasiswa makeMhsObject(ResultSet rs) throws SQLException {
         Mahasiswa mhs = new Mahasiswa();
@@ -40,7 +37,6 @@ public class MysqlMahasiswaService {
 
     /**
      * Menambahkan data mahasiswa ke database
-     * @param mhs Objek Mahasiswa yang akan ditambahkan
      */
     public void add(Mahasiswa mhs) {
         String query = "INSERT INTO mahasiswa (id, nama) VALUES (?, ?)";
@@ -60,7 +56,6 @@ public class MysqlMahasiswaService {
 
     /**
      * Update data mahasiswa di database
-     * @param mhs Objek Mahasiswa yang akan diupdate
      */
     public void update(Mahasiswa mhs) {
         String query = "UPDATE mahasiswa SET nama = ? WHERE id = ?";
@@ -82,7 +77,6 @@ public class MysqlMahasiswaService {
 
     /**
      * Delete data mahasiswa sesuai id dari database
-     * @param id ID Mahasiswa yang akan dihapus
      */
     public void delete(int id) {
         String query = "DELETE FROM mahasiswa WHERE id = ?";
@@ -103,8 +97,6 @@ public class MysqlMahasiswaService {
 
     /**
      * Ambil mahasiswa sesuai id dari database
-     * @param id ID Mahasiswa yang dicari
-     * @return Objek Mahasiswa atau null jika tidak ditemukan
      */
     public Mahasiswa getById(int id) {
         String query = "SELECT * FROM mahasiswa WHERE id = ?";
@@ -129,7 +121,6 @@ public class MysqlMahasiswaService {
 
     /**
      * Ambil semua isi tabel mahasiswa dari database
-     * @return List yang berisi semua objek Mahasiswa
      */
     public List<Mahasiswa> getAll() {
         List<Mahasiswa> listMahasiswa = new ArrayList<>();
@@ -163,6 +154,41 @@ public class MysqlMahasiswaService {
             for (Mahasiswa mhs : listMahasiswa) {
                 System.out.println(mhs.toString());
             }
+        }
+    }
+
+    /**
+     * Reset indeks ID mahasiswa di database agar berurutan mulai dari 1
+     * dan update ID pada tabel mahasiswa.
+     */
+    public void resetIndeks() {
+        try {
+            // ambil semua data mahasiswa terurut ID lama
+            List<Mahasiswa> listMahasiswa = new ArrayList<>();
+            String selectQuery = "SELECT * FROM mahasiswa ORDER BY id ASC";
+            Statement stmt = koneksi.createStatement();
+            ResultSet rs = stmt.executeQuery(selectQuery);
+            while (rs.next()) {
+                Mahasiswa mhs = makeMhsObject(rs);
+                listMahasiswa.add(mhs);
+            }
+            rs.close();
+            stmt.close();
+
+            // update id mahasiswa satu per satu
+            int newId = 1;
+            for (Mahasiswa mhs : listMahasiswa) {
+                PreparedStatement ps = koneksi.prepareStatement("UPDATE mahasiswa SET id = ? WHERE id = ?");
+                ps.setInt(1, newId);
+                ps.setInt(2, mhs.getId());
+                ps.executeUpdate();
+                ps.close();
+                newId++;
+            }
+
+            System.out.println("Indeks ID mahasiswa berhasil direset dan diurutkan ulang.");
+        } catch (SQLException e) {
+            System.out.println("Error saat reset indeks: " + e.getMessage());
         }
     }
 

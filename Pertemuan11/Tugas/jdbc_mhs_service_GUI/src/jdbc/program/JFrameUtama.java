@@ -234,7 +234,13 @@ public class JFrameUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNamaEditActionPerformed
 
     private void jButtonAmbilSemuaDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAmbilSemuaDataActionPerformed
-        // TODO add your handling code here:
+        java.util.List<Mahasiswa> allMhs = service.getAll();
+        listID.clear();
+        listNama.clear();
+        for (Mahasiswa mhs : allMhs) {
+            listID.addElement(String.valueOf(mhs.getId()));
+            listNama.addElement(mhs.getNama());
+        }
     }//GEN-LAST:event_jButtonAmbilSemuaDataActionPerformed
 
     private void jTextFieldNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNamaActionPerformed
@@ -290,7 +296,7 @@ public class JFrameUtama extends javax.swing.JFrame {
             jTextFieldIDHapus.setText(id);
             jTextFieldNamaHapus.setText(nama);
 
-            service.delete(Integer.parseInt(id)); // Sesuaikan logika delete jika index bukan ID asli database
+            service.delete(Integer.parseInt(id));
 
             listID.remove(index);
             listNama.remove(index);
@@ -298,7 +304,14 @@ public class JFrameUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonHapusActionPerformed
 
     private void jButtonResetIndeksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetIndeksActionPerformed
-        // TODO add your handling code here:
+        service.resetIndeks();
+        java.util.List<Mahasiswa> allMhs = service.getAll();
+        listID.clear();
+        listNama.clear();
+        for (Mahasiswa mhs : allMhs) {
+            listID.addElement(String.valueOf(mhs.getId()));
+            listNama.addElement(mhs.getNama());
+        }
     }//GEN-LAST:event_jButtonResetIndeksActionPerformed
 
     /**
